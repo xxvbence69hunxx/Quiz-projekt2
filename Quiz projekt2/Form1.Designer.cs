@@ -28,57 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.kerdes = new System.Windows.Forms.Label();
-            this.a = new System.Windows.Forms.Label();
-            this.b = new System.Windows.Forms.Label();
-            this.c = new System.Windows.Forms.Label();
+            this.answerTextBox = new System.Windows.Forms.TextBox();
+            this.questionbar = new System.Windows.Forms.Label();
+            this.option1 = new System.Windows.Forms.Label();
+            this.option2 = new System.Windows.Forms.Label();
+            this.option3 = new System.Windows.Forms.Label();
             this.valasz = new System.Windows.Forms.Button();
+            this.scoreLabel = new System.Windows.Forms.Label();
+            this.option4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // answerTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(46, 186);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(106, 20);
-            this.textBox1.TabIndex = 0;
+            this.answerTextBox.Location = new System.Drawing.Point(46, 186);
+            this.answerTextBox.Name = "answerTextBox";
+            this.answerTextBox.Size = new System.Drawing.Size(106, 20);
+            this.answerTextBox.TabIndex = 0;
             // 
-            // kerdes
+            // questionbar
             // 
-            this.kerdes.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.kerdes.Location = new System.Drawing.Point(203, 18);
-            this.kerdes.Name = "kerdes";
-            this.kerdes.Size = new System.Drawing.Size(481, 96);
-            this.kerdes.TabIndex = 1;
-            this.kerdes.Text = "label1";
-            this.kerdes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.questionbar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.questionbar.Location = new System.Drawing.Point(203, 18);
+            this.questionbar.Name = "questionbar";
+            this.questionbar.Size = new System.Drawing.Size(481, 96);
+            this.questionbar.TabIndex = 1;
+            this.questionbar.Text = "label1";
+            this.questionbar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // a
+            // option1
             // 
-            this.a.AutoSize = true;
-            this.a.Location = new System.Drawing.Point(203, 263);
-            this.a.Name = "a";
-            this.a.Size = new System.Drawing.Size(35, 13);
-            this.a.TabIndex = 2;
-            this.a.Text = "label2";
+            this.option1.AutoSize = true;
+            this.option1.Location = new System.Drawing.Point(203, 263);
+            this.option1.Name = "option1";
+            this.option1.Size = new System.Drawing.Size(35, 13);
+            this.option1.TabIndex = 2;
+            this.option1.Text = "label2";
             // 
-            // b
+            // option2
             // 
-            this.b.AutoSize = true;
-            this.b.Location = new System.Drawing.Point(649, 263);
-            this.b.Name = "b";
-            this.b.Size = new System.Drawing.Size(35, 13);
-            this.b.TabIndex = 3;
-            this.b.Text = "label3";
+            this.option2.AutoSize = true;
+            this.option2.Location = new System.Drawing.Point(649, 263);
+            this.option2.Name = "option2";
+            this.option2.Size = new System.Drawing.Size(35, 13);
+            this.option2.TabIndex = 3;
+            this.option2.Text = "label3";
             // 
-            // c
+            // option3
             // 
-            this.c.AutoSize = true;
-            this.c.Location = new System.Drawing.Point(424, 398);
-            this.c.Name = "c";
-            this.c.Size = new System.Drawing.Size(35, 13);
-            this.c.TabIndex = 3;
-            this.c.Text = "label3";
+            this.option3.AutoSize = true;
+            this.option3.Location = new System.Drawing.Point(203, 398);
+            this.option3.Name = "option3";
+            this.option3.Size = new System.Drawing.Size(35, 13);
+            this.option3.TabIndex = 3;
+            this.option3.Text = "label3";
             // 
             // valasz
             // 
@@ -88,19 +90,38 @@
             this.valasz.TabIndex = 4;
             this.valasz.Text = "button1";
             this.valasz.UseVisualStyleBackColor = true;
-            this.valasz.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // scoreLabel
+            // 
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.Location = new System.Drawing.Point(839, 439);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(35, 13);
+            this.scoreLabel.TabIndex = 5;
+            this.scoreLabel.Text = "label1";
+            // 
+            // option4
+            // 
+            this.option4.AutoSize = true;
+            this.option4.Location = new System.Drawing.Point(649, 398);
+            this.option4.Name = "option4";
+            this.option4.Size = new System.Drawing.Size(35, 13);
+            this.option4.TabIndex = 6;
+            this.option4.Text = "label1";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(915, 479);
+            this.Controls.Add(this.option4);
+            this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.valasz);
-            this.Controls.Add(this.c);
-            this.Controls.Add(this.b);
-            this.Controls.Add(this.a);
-            this.Controls.Add(this.kerdes);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.option3);
+            this.Controls.Add(this.option2);
+            this.Controls.Add(this.option1);
+            this.Controls.Add(this.questionbar);
+            this.Controls.Add(this.answerTextBox);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -110,12 +131,14 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label kerdes;
-        private System.Windows.Forms.Label a;
-        private System.Windows.Forms.Label b;
-        private System.Windows.Forms.Label c;
+        private System.Windows.Forms.TextBox answerTextBox;
+        private System.Windows.Forms.Label questionbar;
+        private System.Windows.Forms.Label option1;
+        private System.Windows.Forms.Label option2;
+        private System.Windows.Forms.Label option3;
         private System.Windows.Forms.Button valasz;
+        private System.Windows.Forms.Label scoreLabel;
+        private System.Windows.Forms.Label option4;
     }
 }
 

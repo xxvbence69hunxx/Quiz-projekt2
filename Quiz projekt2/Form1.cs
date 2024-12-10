@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Quiz_projekt2
@@ -40,11 +36,149 @@ namespace Quiz_projekt2
                 CorrectAnswerExplanation = correctAnswerExplanation?.Trim();
             }
         }
+
+        private List<QuizQuestion> questions = new List<QuizQuestion>();
+        private string correctAnswerKey;
+        private string correctAnswerExplanation;
+        private int score = 0;
+
+
+
         public Form1()
         {
             InitializeComponent();
+            LoadQuestions();
+            ShowRandomQuestion();
         }
 
-        
+
+
+
+        private void InitializeQuiz()
+        {
+            scoreLabel.Text = "Score: " + score.ToString();
+        }
+
+        private void LoadQuestions()
+        {
+            string filePath = @"E:\visual projektek\Quiz projekt2\Quiz projekt2\bin\Debug\kerdesek.txt";
+
+            if (!File.Exists(filePath))
+            {
+                MessageBox.Show("Question file not found: " + filePath);
+                return;
+            }
+
+            questions.Clear();
+
+            try
+            {
+                StreamReader reader = new StreamReader(filePath);
+
+                while (!reader.EndOfStream)
+                {
+                    string line = reader.ReadLine();
+                    if (string.IsNullOrWhiteSpace(line))
+                        continue;
+
+                    string[] lineParts = line.Split('/').Select(p => p.Trim()).ToArray();
+
+                    if (lineParts.Length != 7)
+                    {
+                        MessageBox.Show("Invalid question format in the file!");
+                        return;
+                    }
+
+                    QuizQuestion question = new QuizQuestion(
+                        questionText: lineParts[0],
+                        answerOption1: lineParts[1],
+                        answerOption2: lineParts[2],
+                        answerOption3: lineParts[3],
+                        answerOption4: lineParts[4],
+                        correctAnswerKey: lineParts[5],
+                        correctAnswerExplanation: lineParts[6]
+                    );
+
+                    questions.Add(question);
+                }
+
+                reader.Close();
+            }
+            catch (IOException ex)
+            {
+                MessageBox.Show("Error reading file: " + ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Unexpected error: " + ex.Message);
+            }
+        }
+
+
+        private void Valasz_Click(object sender, EventArgs e)
+        {
+            LoadQuestions();
+        }
+
+        private void ShowRandomQuestion()
+        {
+            if (questions.Count == 0)
+            {
+                MessageBox.Show("No questions available!");
+                return;
+            }
+
+            Random random = new Random();
+            int randomIndex = random.Next(questions.Count);
+            QuizQuestion selectedQuestion = questions[randomIndex];
+
+            
+            questionbar.Text = selectedQuestion.QuestionText;
+            option1.Text = selectedQuestion.AnswerOption1;
+            option2.Text = selectedQuestion.AnswerOption2;
+            option3.Text = selectedQuestion.AnswerOption3;
+            option4.Text = selectedQuestion.AnswerOption4;
+
+            
+            correctAnswerKey = selectedQuestion.CorrectAnswerKey;
+            correctAnswerExplanation = selectedQuestion.CorrectAnswerExplanation;
+
+            
+            answerTextBox.Clear();
+        }
+
+
+
+        private void CheckAnswer()
+        {
+            
+            string userAnswer = answerTextBox.Text.Trim().ToUpper();
+            string correctAnswer = correctAnswerKey.Trim().ToUpper();
+
+            
+            if (userAnswer == correctAnswer)
+            {
+                MessageBox.Show("Correct!");
+                score++;
+            }
+            else
+            {
+                MessageBox.Show($"Wrong! Correct answer: {correctAnswerKey}\nExplanation: {correctAnswerExplanation}");
+            }
+
+            
+            scoreLabel.Text = "Score: " + score.ToString();
+
+            ShowRandomQuestion();
+        }
+
+
+
+        private void valasz_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Button clicked!");
+            CheckAnswer(); 
+        }
+
     }
 }
