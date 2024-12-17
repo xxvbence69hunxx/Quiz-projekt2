@@ -41,18 +41,16 @@ namespace Quiz_projekt2
         private string correctAnswerKey;
         private string correctAnswerExplanation;
         private int score = 0;
-
-
+        private Random random = new Random();
 
         public Form1()
         {
             InitializeComponent();
             LoadQuestions();
             ShowRandomQuestion();
+            InitializeQuiz();
+            valasz.Click += valasz_Click;
         }
-
-
-
 
         private void InitializeQuiz()
         {
@@ -61,7 +59,7 @@ namespace Quiz_projekt2
 
         private void LoadQuestions()
         {
-            string filePath = @"E:\visual projektek\Quiz projekt2\Quiz projekt2\bin\Debug\kerdesek.txt";
+            string filePath = @"C:\Users\urban\Source\Repos\Quiz-projekt2\Quiz projekt2\kerdesek.txt";
 
             if (!File.Exists(filePath))
             {
@@ -114,12 +112,6 @@ namespace Quiz_projekt2
             }
         }
 
-
-        private void Valasz_Click(object sender, EventArgs e)
-        {
-            LoadQuestions();
-        }
-
         private void ShowRandomQuestion()
         {
             if (questions.Count == 0)
@@ -128,34 +120,38 @@ namespace Quiz_projekt2
                 return;
             }
 
-            Random random = new Random();
             int randomIndex = random.Next(questions.Count);
             QuizQuestion selectedQuestion = questions[randomIndex];
 
-            
             questionbar.Text = selectedQuestion.QuestionText;
             option1.Text = selectedQuestion.AnswerOption1;
             option2.Text = selectedQuestion.AnswerOption2;
             option3.Text = selectedQuestion.AnswerOption3;
             option4.Text = selectedQuestion.AnswerOption4;
 
-            
             correctAnswerKey = selectedQuestion.CorrectAnswerKey;
             correctAnswerExplanation = selectedQuestion.CorrectAnswerExplanation;
 
-            
             answerTextBox.Clear();
         }
 
-
-
         private void CheckAnswer()
         {
-            
+            if (string.IsNullOrWhiteSpace(answerTextBox.Text))
+            {
+                MessageBox.Show("Please enter your answer!");
+                return;
+            }
+
             string userAnswer = answerTextBox.Text.Trim().ToUpper();
+            if (userAnswer != "A" && userAnswer != "B" && userAnswer != "C" && userAnswer != "D")
+            {
+                MessageBox.Show("Invalid answer! Please enter A, B, C, or D.");
+                return;
+            }
+
             string correctAnswer = correctAnswerKey.Trim().ToUpper();
 
-            
             if (userAnswer == correctAnswer)
             {
                 MessageBox.Show("Correct!");
@@ -166,19 +162,13 @@ namespace Quiz_projekt2
                 MessageBox.Show($"Wrong! Correct answer: {correctAnswerKey}\nExplanation: {correctAnswerExplanation}");
             }
 
-            
             scoreLabel.Text = "Score: " + score.ToString();
-
             ShowRandomQuestion();
         }
 
-
-
         private void valasz_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Button clicked!");
-            CheckAnswer(); 
+            CheckAnswer();
         }
-
     }
 }
