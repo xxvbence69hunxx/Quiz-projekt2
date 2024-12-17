@@ -59,11 +59,11 @@ namespace Quiz_projekt2
 
         private void LoadQuestions()
         {
-            string filePath = @"C:\Users\urban\Source\Repos\Quiz-projekt2\Quiz projekt2\kerdesek.txt";
+            string filePath = @"E:\visual projektek\Quiz projekt2\Quiz projekt2\bin\Debug\kerdesek.txt";
 
             if (!File.Exists(filePath))
             {
-                MessageBox.Show("Question file not found: " + filePath);
+                MessageBox.Show("Nem található a fájl: " + filePath);
                 return;
             }
 
@@ -83,7 +83,7 @@ namespace Quiz_projekt2
 
                     if (lineParts.Length != 7)
                     {
-                        MessageBox.Show("Invalid question format in the file!");
+                        MessageBox.Show("Helytelen válasz formátum!");
                         return;
                     }
 
@@ -104,11 +104,11 @@ namespace Quiz_projekt2
             }
             catch (IOException ex)
             {
-                MessageBox.Show("Error reading file: " + ex.Message);
+                MessageBox.Show("Nem tudja beolvasni a szöveget: " + ex.Message);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Unexpected error: " + ex.Message);
+                MessageBox.Show("Váratlan hiba: " + ex.Message);
             }
         }
 
@@ -116,7 +116,7 @@ namespace Quiz_projekt2
         {
             if (questions.Count == 0)
             {
-                MessageBox.Show("No questions available!");
+                MessageBox.Show("Nincs több kérdés!");
                 return;
             }
 
@@ -139,14 +139,14 @@ namespace Quiz_projekt2
         {
             if (string.IsNullOrWhiteSpace(answerTextBox.Text))
             {
-                MessageBox.Show("Please enter your answer!");
+                MessageBox.Show("Kérlek válaszolj!");
                 return;
             }
 
             string userAnswer = answerTextBox.Text.Trim().ToUpper();
             if (userAnswer != "A" && userAnswer != "B" && userAnswer != "C" && userAnswer != "D")
             {
-                MessageBox.Show("Invalid answer! Please enter A, B, C, or D.");
+                MessageBox.Show("Nem megfelelő válasz! Kérlek válassz a következők közül: A, B, C, vagy D.");
                 return;
             }
 
@@ -154,12 +154,12 @@ namespace Quiz_projekt2
 
             if (userAnswer == correctAnswer)
             {
-                MessageBox.Show("Correct!");
+                MessageBox.Show("Helyes!");
                 score++;
             }
             else
             {
-                MessageBox.Show($"Wrong! Correct answer: {correctAnswerKey}\nExplanation: {correctAnswerExplanation}");
+                MessageBox.Show($"Rossz! Helyes válasz: {correctAnswerKey}\nMagyarázat: {correctAnswerExplanation}");
             }
 
             scoreLabel.Text = "Score: " + score.ToString();
@@ -170,5 +170,7 @@ namespace Quiz_projekt2
         {
             CheckAnswer();
         }
+
+        
     }
 }

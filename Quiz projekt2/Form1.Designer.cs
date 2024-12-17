@@ -40,7 +40,7 @@
             // 
             // answerTextBox
             // 
-            this.answerTextBox.Location = new System.Drawing.Point(46, 186);
+            this.answerTextBox.Location = new System.Drawing.Point(335, 184);
             this.answerTextBox.Name = "answerTextBox";
             this.answerTextBox.Size = new System.Drawing.Size(106, 20);
             this.answerTextBox.TabIndex = 0;
@@ -84,11 +84,11 @@
             // 
             // valasz
             // 
-            this.valasz.Location = new System.Drawing.Point(172, 186);
+            this.valasz.Location = new System.Drawing.Point(447, 182);
             this.valasz.Name = "valasz";
             this.valasz.Size = new System.Drawing.Size(75, 23);
             this.valasz.TabIndex = 4;
-            this.valasz.Text = "button1";
+            this.valasz.Text = "Tipp";
             this.valasz.UseVisualStyleBackColor = true;
             // 
             // scoreLabel
@@ -113,7 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(915, 479);
+            this.ClientSize = new System.Drawing.Size(899, 473);
             this.Controls.Add(this.option4);
             this.Controls.Add(this.scoreLabel);
             this.Controls.Add(this.valasz);
@@ -122,8 +122,10 @@
             this.Controls.Add(this.option1);
             this.Controls.Add(this.questionbar);
             this.Controls.Add(this.answerTextBox);
+            this.MaximumSize = new System.Drawing.Size(915, 512);
+            this.MinimumSize = new System.Drawing.Size(915, 512);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Quiz";
             this.ResumeLayout(false);
             this.PerformLayout();
 
