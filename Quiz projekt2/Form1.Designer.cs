@@ -122,6 +122,7 @@
             this.Controls.Add(this.option1);
             this.Controls.Add(this.questionbar);
             this.Controls.Add(this.answerTextBox);
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(915, 512);
             this.MinimumSize = new System.Drawing.Size(915, 512);
             this.Name = "Form1";
