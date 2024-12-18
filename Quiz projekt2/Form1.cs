@@ -59,7 +59,7 @@ namespace Quiz_projekt2
 
         private void LoadQuestions()
         {
-            string filePath = @"E:\visual projektek\Quiz projekt2\Quiz projekt2\bin\Debug\kerdesek.txt";
+            string filePath = @"C:\Users\ny20vargab\source\repos\Quiz-projekt2\Quiz projekt2\kerdesek.txt";
 
             if (!File.Exists(filePath))
             {
@@ -159,7 +159,7 @@ namespace Quiz_projekt2
             }
             else
             {
-                MessageBox.Show($"Rossz! Helyes válasz: {correctAnswerKey}\nMagyarázat: {correctAnswerExplanation}");
+                MessageBox.Show($"Rossz! Helyes válasz: {correctAnswerKey}");
             }
 
             scoreLabel.Text = "Score: " + score.ToString();
@@ -171,6 +171,9 @@ namespace Quiz_projekt2
             CheckAnswer();
         }
 
-        
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

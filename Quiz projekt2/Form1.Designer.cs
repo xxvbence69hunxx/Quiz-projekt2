@@ -40,14 +40,15 @@
             // 
             // answerTextBox
             // 
-            this.answerTextBox.Location = new System.Drawing.Point(335, 184);
+            this.answerTextBox.Location = new System.Drawing.Point(338, 193);
             this.answerTextBox.Name = "answerTextBox";
             this.answerTextBox.Size = new System.Drawing.Size(106, 20);
             this.answerTextBox.TabIndex = 0;
             // 
             // questionbar
             // 
-            this.questionbar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.questionbar.BackColor = System.Drawing.Color.MistyRose;
+            this.questionbar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.questionbar.Location = new System.Drawing.Point(203, 18);
             this.questionbar.Name = "questionbar";
             this.questionbar.Size = new System.Drawing.Size(481, 96);
@@ -58,33 +59,37 @@
             // option1
             // 
             this.option1.AutoSize = true;
-            this.option1.Location = new System.Drawing.Point(203, 263);
+            this.option1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.option1.Location = new System.Drawing.Point(155, 263);
             this.option1.Name = "option1";
-            this.option1.Size = new System.Drawing.Size(35, 13);
+            this.option1.Size = new System.Drawing.Size(64, 25);
             this.option1.TabIndex = 2;
             this.option1.Text = "label2";
             // 
             // option2
             // 
             this.option2.AutoSize = true;
+            this.option2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.option2.Location = new System.Drawing.Point(649, 263);
             this.option2.Name = "option2";
-            this.option2.Size = new System.Drawing.Size(35, 13);
+            this.option2.Size = new System.Drawing.Size(64, 25);
             this.option2.TabIndex = 3;
             this.option2.Text = "label3";
             // 
             // option3
             // 
             this.option3.AutoSize = true;
-            this.option3.Location = new System.Drawing.Point(203, 398);
+            this.option3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.option3.Location = new System.Drawing.Point(155, 398);
             this.option3.Name = "option3";
-            this.option3.Size = new System.Drawing.Size(35, 13);
+            this.option3.Size = new System.Drawing.Size(64, 25);
             this.option3.TabIndex = 3;
             this.option3.Text = "label3";
             // 
             // valasz
             // 
-            this.valasz.Location = new System.Drawing.Point(447, 182);
+            this.valasz.Font = new System.Drawing.Font("Microsoft Tai Le", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.valasz.Location = new System.Drawing.Point(461, 191);
             this.valasz.Name = "valasz";
             this.valasz.Size = new System.Drawing.Size(75, 23);
             this.valasz.TabIndex = 4;
@@ -94,18 +99,20 @@
             // scoreLabel
             // 
             this.scoreLabel.AutoSize = true;
-            this.scoreLabel.Location = new System.Drawing.Point(839, 439);
+            this.scoreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.scoreLabel.Location = new System.Drawing.Point(801, 427);
             this.scoreLabel.Name = "scoreLabel";
-            this.scoreLabel.Size = new System.Drawing.Size(35, 13);
+            this.scoreLabel.Size = new System.Drawing.Size(64, 25);
             this.scoreLabel.TabIndex = 5;
             this.scoreLabel.Text = "label1";
             // 
             // option4
             // 
             this.option4.AutoSize = true;
+            this.option4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.option4.Location = new System.Drawing.Point(649, 398);
             this.option4.Name = "option4";
-            this.option4.Size = new System.Drawing.Size(35, 13);
+            this.option4.Size = new System.Drawing.Size(64, 25);
             this.option4.TabIndex = 6;
             this.option4.Text = "label1";
             // 
@@ -113,6 +120,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MistyRose;
             this.ClientSize = new System.Drawing.Size(899, 473);
             this.Controls.Add(this.option4);
             this.Controls.Add(this.scoreLabel);
@@ -127,6 +135,7 @@
             this.MinimumSize = new System.Drawing.Size(915, 512);
             this.Name = "Form1";
             this.Text = "Quiz";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
